@@ -1,16 +1,18 @@
 name: runOnGitHub
 
 # Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
+# events but only for the master,main branch
 on:
   push:
-    branches: [ master, main ]
+    branches: [ master ]
   pull_request:
     branches: [ master, main ]
+#Specify all jobs here::
 jobs:
+#Build of first job::
   build:
     runs-on: ubuntu-latest
-
+#Steps involved in first job::
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 8
@@ -18,7 +20,5 @@ jobs:
         with:
           java-version: '8'
           distribution: 'adopt'
-      - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Build with Gradle
         run: ./gradlew build
