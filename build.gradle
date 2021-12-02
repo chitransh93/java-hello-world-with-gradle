@@ -62,11 +62,3 @@ task wrapper(type: Wrapper) {
     gradleVersion = '3.5'
 }
 // end::wrapper[]
-
-// Including gradle scan to etect slow/failed builds
-buildScan {
-    termsOfServiceUrl = 'https://gradle.com/terms-of-service'
-    termsOfServiceAgree = 'yes'
-
-}
-
