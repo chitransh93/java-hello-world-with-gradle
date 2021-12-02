@@ -22,6 +22,10 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
           cache: gradle
-      - name: Build with Gradle
-        run: ./gradlew build
-        
+      #- name: Build with Gradle
+      #  run: ./gradlew build
+      #using gradle's own action::
+      - uses: gradle/gradle-build-action@v2
+        with:
+          arguments: build
+          
